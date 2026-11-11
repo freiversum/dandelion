@@ -267,7 +267,7 @@ class DandelionDeck(Gtk.Box):
         for i, column in enumerate(self.columns):
             column.set_visible(not narrow or i == self.current)
             column.set_size_request(0 if narrow else COLUMN_WIDTH, -1)
-            column.set_hexpand(narrow or len(self.columns) == 1)
+            column.set_hexpand(True)          # Spalten teilen sich die Breite
         self.switcher_bar.set_visible(narrow and len(self.columns) > 1)
 
     def column_count(self) -> int:
