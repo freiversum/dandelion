@@ -106,6 +106,8 @@ class MastodonStream:
         opened: asyncio.Future = loop.create_future()
 
         def done(session, result) -> None:  # type: ignore[no-untyped-def]
+            if opened.done():                  # Aufrufer hat schon abgebrochen
+                return
             try:
                 opened.set_result(session.websocket_connect_finish(result))
             except GLib.Error as e:

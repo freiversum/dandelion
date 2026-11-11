@@ -243,14 +243,19 @@ class Archive:
         item = Adw.SidebarItem(title=title or first_line(post.body, 60) or _("Empty Post"),
                                subtitle=subtitle)
         role = roles.get(post.role_id)
-        if role and role.emoji:
-            prefix: Gtk.Widget = Gtk.Label(label=role.emoji)
-            prefix.add_css_class("sidebar-emoji")
-        else:
-            prefix = Gtk.Image(icon_name="document-edit-symbolic")
-        item.set_prefix(prefix)
-        if key is not None:
-            self._prefix_keys[prefix] = key
+        if hasattr(item, "set_prefix"):               # libadwaita 1.10
+            if role and role.emoji:
+                prefix: Gtk.Widget = Gtk.Label(label=role.emoji)
+                prefix.add_css_class("sidebar-emoji")
+            else:
+                prefix = Gtk.Image(icon_name="document-edit-symbolic")
+            item.set_prefix(prefix)
+            if key is not None:
+                self._prefix_keys[prefix] = key
+        else:                                          # libadwaita 1.9: nur ein Symbol,
+            item.set_icon_name("document-edit-symbolic")   # Ziehen auf den Kalender entfällt
+            if role and role.emoji:
+                item.set_title(f"{role.emoji} {item.get_title()}")
 
         suffix = Gtk.Box(spacing=4, valign=Gtk.Align.CENTER)
         if post.state == PostState.MISSED:
