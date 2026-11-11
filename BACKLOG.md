@@ -57,8 +57,10 @@ Concept and phases in [docs/deck-columns.md](docs/deck-columns.md).
 
 - [ ] **Videos** for Bluesky, X, LinkedIn and Facebook. So far videos only go
       to Mastodon.
-- [ ] **Bluesky OAuth** as an alternative to the app password, with the
-      metadata file on linuxundich.de.
+- [ ] **Bluesky OAuth: go live.** Code and tests are done (`auth/atproto.py`,
+      loopback redirect). Still to do: publish
+      `docs/oauth/client-metadata.json` at the client ID URL on linuxundich.de,
+      then sign in once with a real account (never tried against a real server).
 - [ ] **Server-side scheduling on Facebook** (optional; Mastodon is done).
 - [ ] **Small things:**
   - [ ] Prefill alt text from the image metadata (EXIF)

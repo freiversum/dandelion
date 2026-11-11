@@ -37,6 +37,7 @@ class DandelionAddProfileDialog(Adw.Dialog):
     handle_row: Adw.EntryRow = Gtk.Template.Child()
     password_row: Adw.PasswordEntryRow = Gtk.Template.Child()
     bluesky_button: Gtk.Button = Gtk.Template.Child()
+    bluesky_oauth_button: Gtk.Button = Gtk.Template.Child()
     bluesky_wait_group: Adw.PreferencesGroup = Gtk.Template.Child()
     done_avatar: Adw.Avatar = Gtk.Template.Child()
     done_name: Gtk.Label = Gtk.Template.Child()
@@ -92,6 +93,7 @@ class DandelionAddProfileDialog(Adw.Dialog):
         self.bluesky_wait_group.set_visible(False)
         self.mastodon_button.set_sensitive(True)
         self.bluesky_button.set_sensitive(True)
+        self.bluesky_oauth_button.set_sensitive(True)
         self.app_wait_group.set_visible(False)
         self.app_login_button.set_sensitive(True)
 
@@ -168,6 +170,7 @@ class DandelionAddProfileDialog(Adw.Dialog):
                 (row.add_css_class if not value else row.remove_css_class)("error")
             return
         self.bluesky_button.set_sensitive(False)
+        self.bluesky_oauth_button.set_sensitive(False)
         self.bluesky_wait_group.set_visible(True)
 
         async def run() -> None:
@@ -176,6 +179,29 @@ class DandelionAddProfileDialog(Adw.Dialog):
             await self._save_profile(bsky, profile, secret)
 
         spawn(run(), on_error=self._error)
+
+    @Gtk.Template.Callback()
+    def on_bluesky_oauth(self, *_args: object) -> None:
+        handle = self.handle_row.get_text().strip()
+        if not handle:
+            self.handle_row.add_css_class("error")
+            return
+        self.handle_row.remove_css_class("error")
+        self.bluesky_button.set_sensitive(False)
+        self.bluesky_oauth_button.set_sensitive(False)
+        self.bluesky_wait_group.set_visible(True)
+        spawn(self._bluesky_oauth_flow(handle), on_error=self._error)
+
+    async def _bluesky_oauth_flow(self, handle: str) -> None:
+        bsky = self.app.registry.get("bluesky")
+        self._cleanup()
+        self.server = LoopbackServer()
+        redirect = self.server.start()
+        pending = await bsky.begin_oauth(handle, redirect)  # type: ignore[attr-defined]
+        self._launch(pending.authorize_url())
+        params = await self.server.wait()
+        profile, secret = await bsky.finish_oauth(pending, params)  # type: ignore[attr-defined]
+        await self._save_profile(bsky, profile, secret)
 
     # -- Gemeinsam -----------------------------------------------------------
     # -- Eigene Entwickler-App (LinkedIn, Facebook, X) ----------------------

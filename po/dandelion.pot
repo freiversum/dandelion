@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dandelion\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-11 17:25+0100\n"
+"POT-Creation-Date: 2026-11-11 20:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1016,7 +1016,7 @@ msgstr ""
 msgid "Personal profile"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:100 src/dandelion/add_profile.py:213
+#: src/dandelion/ui/add-profile.blp:100 src/dandelion/add_profile.py:239
 msgid "Facebook Page"
 msgstr ""
 
@@ -1038,11 +1038,11 @@ msgstr ""
 msgid "Server"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:172 src/dandelion/ui/add-profile.blp:335
+#: src/dandelion/ui/add-profile.blp:172 src/dandelion/ui/add-profile.blp:355
 msgid "_Sign In With Browser"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:194 src/dandelion/ui/add-profile.blp:357
+#: src/dandelion/ui/add-profile.blp:194 src/dandelion/ui/add-profile.blp:377
 msgid "Waiting for the browser"
 msgstr ""
 
@@ -1062,65 +1062,84 @@ msgstr ""
 msgid "Open Login Page Again"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:233
-msgid ""
-"Use an app password instead of your main password. You can revoke it at any "
-"time in the Bluesky settings."
-msgstr ""
-
-#: src/dandelion/ui/add-profile.blp:236
+#: src/dandelion/ui/add-profile.blp:234
 msgid "Handle or profile address"
 msgstr ""
 
 #: src/dandelion/ui/add-profile.blp:241
+msgid "Sign In with the Browser"
+msgstr ""
+
+#: src/dandelion/ui/add-profile.blp:242
+msgid ""
+"You approve Dandelion on the Bluesky website, and no password is stored. "
+"Bluesky ends this sign-in after two weeks at the latest. Scheduled posts "
+"need an app password instead."
+msgstr ""
+
+#: src/dandelion/ui/add-profile.blp:245
+msgid "Sign In with _Browser"
+msgstr ""
+
+#: src/dandelion/ui/add-profile.blp:258
+msgid "Sign In with an App Password"
+msgstr ""
+
+#: src/dandelion/ui/add-profile.blp:259
+msgid ""
+"Use an app password instead of your main password. You can revoke it at any "
+"time in the Bluesky settings. It keeps working for scheduled posts."
+msgstr ""
+
+#: src/dandelion/ui/add-profile.blp:262
 msgid "App Password"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:246
+#: src/dandelion/ui/add-profile.blp:267
 msgid "Create App Password"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:254
+#: src/dandelion/ui/add-profile.blp:275
 msgid "_Sign In"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:294
+#: src/dandelion/ui/add-profile.blp:314
 msgid "Your Developer App"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:297
+#: src/dandelion/ui/add-profile.blp:317
 msgid "Open Developer Portal"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:303
+#: src/dandelion/ui/add-profile.blp:323
 msgid "Redirect Address"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:309
+#: src/dandelion/ui/add-profile.blp:329
 msgid "Copy"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:312
+#: src/dandelion/ui/add-profile.blp:332
 msgid "Copy redirect address"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:324 src/dandelion/add_profile.py:223
+#: src/dandelion/ui/add-profile.blp:344 src/dandelion/add_profile.py:249
 msgid "Client ID"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:328 src/dandelion/add_profile.py:221
+#: src/dandelion/ui/add-profile.blp:348 src/dandelion/add_profile.py:247
 msgid "Client Secret"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:367
+#: src/dandelion/ui/add-profile.blp:387
 msgid "Profile Added"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:401
+#: src/dandelion/ui/add-profile.blp:421
 msgid "Use in Roles"
 msgstr ""
 
-#: src/dandelion/ui/add-profile.blp:406 src/dandelion/ui/alt-text-dialog.blp:25
+#: src/dandelion/ui/add-profile.blp:426 src/dandelion/ui/alt-text-dialog.blp:25
 msgid "_Done"
 msgstr ""
 
@@ -1897,7 +1916,7 @@ msgstr ""
 msgid "{n} d"
 msgstr ""
 
-#: src/dandelion/composer.py:278 src/dandelion/add_profile.py:317
+#: src/dandelion/composer.py:278 src/dandelion/add_profile.py:343
 msgid "Personal"
 msgstr ""
 
@@ -2464,24 +2483,27 @@ msgstr ""
 msgid "_Remove"
 msgstr ""
 
-#: src/dandelion/add_profile.py:85
+#: src/dandelion/add_profile.py:86
 msgid "The sign-in took too long. Please try again."
 msgstr ""
 
-#: src/dandelion/add_profile.py:87
+#: src/dandelion/add_profile.py:88
 msgid "Sign-in failed."
 msgstr ""
 
-#: src/dandelion/add_profile.py:127
+#: src/dandelion/add_profile.py:129 src/dandelion/auth/atproto.py:174
 #, python-brace-format
 msgid "The server denied the sign-in: {reason}"
 msgstr ""
 
-#: src/dandelion/add_profile.py:130 src/dandelion/add_profile.py:274
+#: src/dandelion/add_profile.py:132 src/dandelion/add_profile.py:300
+#: src/dandelion/auth/atproto.py:177 src/dandelion/auth/atproto.py:180
+#: src/dandelion/auth/atproto.py:182 src/dandelion/auth/atproto.py:189
+#: src/dandelion/auth/atproto.py:242 src/dandelion/platforms/bluesky.py:263
 msgid "The sign-in response did not match. Please try again."
 msgstr ""
 
-#: src/dandelion/add_profile.py:183
+#: src/dandelion/add_profile.py:209
 msgid ""
 "Create an app in the LinkedIn developer portal and add the products “Share "
 "on LinkedIn” and “Sign In with LinkedIn using OpenID Connect”. Enter the "
@@ -2489,7 +2511,7 @@ msgid ""
 "post to your personal profile. A sign-in is valid for 60 days."
 msgstr ""
 
-#: src/dandelion/add_profile.py:188
+#: src/dandelion/add_profile.py:214
 msgid ""
 "Create an app of the type “Business” at developers.facebook.com, keep it in "
 "development mode and add “Facebook Login”. Enter the redirect address below "
@@ -2497,7 +2519,7 @@ msgid ""
 "manage, not to your personal profile."
 msgstr ""
 
-#: src/dandelion/add_profile.py:192
+#: src/dandelion/add_profile.py:218
 msgid ""
 "Create an app of the type “Native App” with read and write permissions in "
 "the X developer portal and enter the redirect address below as callback. X "
@@ -2505,28 +2527,28 @@ msgid ""
 "post contains a link."
 msgstr ""
 
-#: src/dandelion/add_profile.py:219
+#: src/dandelion/add_profile.py:245
 msgid "Client Secret (optional)"
 msgstr ""
 
-#: src/dandelion/add_profile.py:220
+#: src/dandelion/add_profile.py:246
 msgid "App Secret"
 msgstr ""
 
-#: src/dandelion/add_profile.py:222
+#: src/dandelion/add_profile.py:248
 msgid "App ID"
 msgstr ""
 
-#: src/dandelion/add_profile.py:243
+#: src/dandelion/add_profile.py:269
 msgid "Redirect address copied"
 msgstr ""
 
-#: src/dandelion/add_profile.py:271
+#: src/dandelion/add_profile.py:297
 #, python-brace-format
 msgid "The sign-in was cancelled: {reason}"
 msgstr ""
 
-#: src/dandelion/add_profile.py:311
+#: src/dandelion/add_profile.py:337
 #, python-brace-format
 msgid "{n} page added"
 msgid_plural "{n} pages added"
@@ -2634,6 +2656,31 @@ msgstr ""
 
 #: src/dandelion/util.py:121
 msgid "Graphic Media"
+msgstr ""
+
+#: src/dandelion/auth/atproto.py:113 src/dandelion/auth/atproto.py:163
+#: src/dandelion/auth/atproto.py:198
+msgid "The Bluesky server could not be reached."
+msgstr ""
+
+#: src/dandelion/auth/atproto.py:115 src/dandelion/auth/atproto.py:119
+#: src/dandelion/auth/atproto.py:121 src/dandelion/auth/atproto.py:128
+#: src/dandelion/auth/atproto.py:132 src/dandelion/auth/atproto.py:138
+msgid "The Bluesky server does not support this sign-in."
+msgstr ""
+
+#: src/dandelion/auth/atproto.py:166
+#, python-brace-format
+msgid "Bluesky did not accept the sign-in request: {reason}"
+msgstr ""
+
+#: src/dandelion/auth/atproto.py:203 src/dandelion/auth/atproto.py:233
+msgid "The Bluesky sign-in has expired. Please sign in again."
+msgstr ""
+
+#: src/dandelion/auth/atproto.py:205 src/dandelion/auth/atproto.py:209
+#, python-brace-format
+msgid "Bluesky did not accept the sign-in: {reason}"
 msgstr ""
 
 #. GLib.Error: Port belegt
@@ -2749,7 +2796,7 @@ msgstr ""
 msgid "The server rejected the post."
 msgstr ""
 
-#: src/dandelion/platforms/base.py:121 src/dandelion/platforms/bluesky.py:150
+#: src/dandelion/platforms/base.py:121 src/dandelion/platforms/bluesky.py:168
 #: src/dandelion/platforms/facebook.py:122
 msgid "Too many requests. Please try again later."
 msgstr ""
@@ -2764,7 +2811,8 @@ msgid "Unexpected answer from the server (HTTP {status})."
 msgstr ""
 
 #: src/dandelion/platforms/base.py:244 src/dandelion/platforms/mastodon.py:151
-#: src/dandelion/platforms/bluesky.py:229
+#: src/dandelion/platforms/bluesky.py:276
+#: src/dandelion/platforms/bluesky.py:299
 msgid "No login data found. Please sign in again."
 msgstr ""
 
@@ -2797,43 +2845,44 @@ msgstr ""
 msgid "The server published the post immediately instead of scheduling it."
 msgstr ""
 
-#: src/dandelion/platforms/bluesky.py:132
+#: src/dandelion/platforms/bluesky.py:149
 msgid "Bluesky could not be reached. Check your internet connection."
 msgstr ""
 
-#: src/dandelion/platforms/bluesky.py:143
+#: src/dandelion/platforms/bluesky.py:160
 msgid ""
-"Bluesky did not accept the login. Check the handle and the app password."
+"Bluesky did not accept the login. Check the handle and the app password, or "
+"sign in again."
 msgstr ""
 
-#: src/dandelion/platforms/bluesky.py:148
+#: src/dandelion/platforms/bluesky.py:166
 msgid "This Bluesky account has been suspended."
 msgstr ""
 
-#: src/dandelion/platforms/bluesky.py:153
+#: src/dandelion/platforms/bluesky.py:171
 msgid "A file is too large for Bluesky."
 msgstr ""
 
-#: src/dandelion/platforms/bluesky.py:156
+#: src/dandelion/platforms/bluesky.py:174
 #, python-brace-format
 msgid "Bluesky rejected the post: {reason}"
 msgstr ""
 
-#: src/dandelion/platforms/bluesky.py:194
+#: src/dandelion/platforms/bluesky.py:212
 #, python-brace-format
 msgid "The handle {handle} was not found on Bluesky."
 msgstr ""
 
-#: src/dandelion/platforms/bluesky.py:202
+#: src/dandelion/platforms/bluesky.py:220
 #, python-brace-format
 msgid "Unsupported identity: {did}"
 msgstr ""
 
-#: src/dandelion/platforms/bluesky.py:206
+#: src/dandelion/platforms/bluesky.py:224
 msgid "No Bluesky server (PDS) was found for this account."
 msgstr ""
 
-#: src/dandelion/platforms/bluesky.py:294
+#: src/dandelion/platforms/bluesky.py:379
 msgid "Videos are not supported for Bluesky yet."
 msgstr ""
 

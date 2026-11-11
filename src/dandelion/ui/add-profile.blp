@@ -230,12 +230,33 @@ template $DandelionAddProfileDialog: Adw.Dialog {
 
         content: Adw.PreferencesPage {
           Adw.PreferencesGroup {
-            description: _("Use an app password instead of your main password. You can revoke it at any time in the Bluesky settings.");
-
             Adw.EntryRow handle_row {
               title: _("Handle or profile address");
               input-purpose: email;
+              entry-activated => $on_bluesky_oauth();
             }
+          }
+
+          Adw.PreferencesGroup {
+            title: _("Sign In with the Browser");
+            description: _("You approve Dandelion on the Bluesky website, and no password is stored. Bluesky ends this sign-in after two weeks at the latest. Scheduled posts need an app password instead.");
+
+            Button bluesky_oauth_button {
+              label: _("Sign In with _Browser");
+              use-underline: true;
+              halign: center;
+              clicked => $on_bluesky_oauth();
+
+              styles [
+                "pill",
+                "suggested-action",
+              ]
+            }
+          }
+
+          Adw.PreferencesGroup {
+            title: _("Sign In with an App Password");
+            description: _("Use an app password instead of your main password. You can revoke it at any time in the Bluesky settings. It keeps working for scheduled posts.");
 
             Adw.PasswordEntryRow password_row {
               title: _("App Password");
@@ -258,7 +279,6 @@ template $DandelionAddProfileDialog: Adw.Dialog {
 
               styles [
                 "pill",
-                "suggested-action",
               ]
             }
           }

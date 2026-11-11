@@ -927,6 +927,6 @@ dandelion/
 | Alt-Text-Pflicht | ✅ Nur Mastodon blockiert; andere Plattformen Warnung, Pflicht für alle per Einstellung `require-alt-text-everywhere` |
 | Profil in mehreren Rollen (n:m) | ✅ ja, mit „Standardmäßig ausgewählt“ pro Rolle |
 | Signatur/Hashtag-Block pro Rolle | ✅ im MVP; im Composer pro Beitrag abwählbar |
-| Ablage der Bluesky-OAuth-Metadaten | ✅ **linuxundich.de** (entschieden 2026-10-01, ersetzt GitHub Pages): `https://linuxundich.de/dandelion/oauth/client-metadata.json`, statisch im Webroot unter `/hosts/linuxundich.de/dandelion/oauth/`. Das Redirect-Schema ist damit `de.linuxundich:/callback` und passt zur App-ID `de.linuxundich.Dandelion`. Die Datei wird angelegt, sobald OAuth implementiert wird. |
+| Ablage der Bluesky-OAuth-Metadaten | ✅ **linuxundich.de** (entschieden 2026-10-01, ersetzt GitHub Pages): `https://linuxundich.de/dandelion/oauth/client-metadata.json`, statisch im Webroot unter `/hosts/linuxundich.de/dandelion/oauth/`. Umgesetzt (2026-11-11) mit Loopback-Weiterleitung `http://127.0.0.1:PORT/callback` statt Schema `de.linuxundich:/callback`: Das nutzt den vorhandenen Loopback-Server und braucht keine Schema-Registrierung im Flatpak. Metadaten: `docs/oauth/client-metadata.json`. Die Datei wird angelegt, sobald OAuth implementiert wird. |
 
 Konzept freigegeben am 2026-10-01.

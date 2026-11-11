@@ -958,7 +958,7 @@ msgstr "Diese Netzwerke erlauben das Posten nur über eine App, die du selbst re
 msgid "Personal profile"
 msgstr "Persönliches Profil"
 
-#: src/dandelion/ui/add-profile.blp:100 src/dandelion/add_profile.py:213
+#: src/dandelion/ui/add-profile.blp:100 src/dandelion/add_profile.py:239
 msgid "Facebook Page"
 msgstr "Facebook-Seite"
 
@@ -978,11 +978,11 @@ msgstr "Gib die Adresse deines Servers ein. Dandelion öffnet die Anmeldeseite i
 msgid "Server"
 msgstr "Server"
 
-#: src/dandelion/ui/add-profile.blp:172 src/dandelion/ui/add-profile.blp:335
+#: src/dandelion/ui/add-profile.blp:172 src/dandelion/ui/add-profile.blp:355
 msgid "_Sign In With Browser"
 msgstr "Im Browser _anmelden"
 
-#: src/dandelion/ui/add-profile.blp:194 src/dandelion/ui/add-profile.blp:357
+#: src/dandelion/ui/add-profile.blp:194 src/dandelion/ui/add-profile.blp:377
 msgid "Waiting for the browser"
 msgstr "Warte auf den Browser"
 
@@ -1002,63 +1002,79 @@ msgstr "Code oder Adresse aus dem Browser"
 msgid "Open Login Page Again"
 msgstr "Anmeldeseite erneut öffnen"
 
-#: src/dandelion/ui/add-profile.blp:233
-msgid "Use an app password instead of your main password. You can revoke it at any time in the Bluesky settings."
-msgstr "Verwende ein App-Passwort statt deines Hauptpassworts. Du kannst es jederzeit in den Bluesky-Einstellungen widerrufen."
-
-#: src/dandelion/ui/add-profile.blp:236
+#: src/dandelion/ui/add-profile.blp:234
 msgid "Handle or profile address"
 msgstr "Handle oder Profiladresse"
 
 #: src/dandelion/ui/add-profile.blp:241
+msgid "Sign In with the Browser"
+msgstr "Im Browser anmelden"
+
+#: src/dandelion/ui/add-profile.blp:242
+msgid "You approve Dandelion on the Bluesky website, and no password is stored. Bluesky ends this sign-in after two weeks at the latest. Scheduled posts need an app password instead."
+msgstr "Du erlaubst Dandelion auf der Bluesky-Website, es wird kein Passwort gespeichert. Bluesky beendet diese Anmeldung spätestens nach zwei Wochen. Für geplante Beiträge brauchst du stattdessen ein App-Passwort."
+
+#: src/dandelion/ui/add-profile.blp:245
+msgid "Sign In with _Browser"
+msgstr "Im _Browser anmelden"
+
+#: src/dandelion/ui/add-profile.blp:258
+msgid "Sign In with an App Password"
+msgstr "Mit App-Passwort anmelden"
+
+#: src/dandelion/ui/add-profile.blp:259
+msgid "Use an app password instead of your main password. You can revoke it at any time in the Bluesky settings. It keeps working for scheduled posts."
+msgstr "Nimm ein App-Passwort statt deines Hauptpassworts. Du kannst es jederzeit in den Bluesky-Einstellungen widerrufen. Es funktioniert auch für geplante Beiträge."
+
+#: src/dandelion/ui/add-profile.blp:262
 msgid "App Password"
 msgstr "App-Passwort"
 
-#: src/dandelion/ui/add-profile.blp:246
+#: src/dandelion/ui/add-profile.blp:267
 msgid "Create App Password"
 msgstr "App-Passwort erstellen"
 
-#: src/dandelion/ui/add-profile.blp:254
+#: src/dandelion/ui/add-profile.blp:275
 msgid "_Sign In"
 msgstr "_Anmelden"
 
-#: src/dandelion/ui/add-profile.blp:294
+#: src/dandelion/ui/add-profile.blp:314
 msgid "Your Developer App"
 msgstr "Deine Entwickler-App"
 
-#: src/dandelion/ui/add-profile.blp:297
+#: src/dandelion/ui/add-profile.blp:317
 msgid "Open Developer Portal"
 msgstr "Entwicklerportal öffnen"
 
-#: src/dandelion/ui/add-profile.blp:303
+#: src/dandelion/ui/add-profile.blp:323
 msgid "Redirect Address"
 msgstr "Redirect-Adresse"
 
-#: src/dandelion/ui/add-profile.blp:309
+#: src/dandelion/ui/add-profile.blp:329
 msgid "Copy"
 msgstr "Kopieren"
 
-#: src/dandelion/ui/add-profile.blp:312
+#: src/dandelion/ui/add-profile.blp:332
 msgid "Copy redirect address"
 msgstr "Redirect-Adresse kopieren"
 
-#: src/dandelion/ui/add-profile.blp:324 src/dandelion/add_profile.py:223
+#: src/dandelion/ui/add-profile.blp:344 src/dandelion/add_profile.py:249
 msgid "Client ID"
 msgstr "Client-ID"
 
-#: src/dandelion/ui/add-profile.blp:328 src/dandelion/add_profile.py:221
+#: src/dandelion/ui/add-profile.blp:348 src/dandelion/add_profile.py:247
 msgid "Client Secret"
 msgstr "Client-Secret"
 
-#: src/dandelion/ui/add-profile.blp:367
+#: src/dandelion/ui/add-profile.blp:387
 msgid "Profile Added"
 msgstr "Profil hinzugefügt"
 
-#: src/dandelion/ui/add-profile.blp:401
+#: src/dandelion/ui/add-profile.blp:421
 msgid "Use in Roles"
 msgstr "In Rollen verwenden"
 
-#: src/dandelion/ui/add-profile.blp:406 src/dandelion/ui/alt-text-dialog.blp:25
+#: src/dandelion/ui/add-profile.blp:426 src/dandelion/ui/alt-text-dialog.blp:25
 msgid "_Done"
 msgstr "_Fertig"
 
@@ -1830,7 +1846,7 @@ msgstr "{n} Std."
 msgid "{n} d"
 msgstr "{n} T."
 
-#: src/dandelion/composer.py:278 src/dandelion/add_profile.py:317
+#: src/dandelion/composer.py:278 src/dandelion/add_profile.py:343
 msgid "Personal"
 msgstr "Privat"
 
@@ -2393,57 +2409,60 @@ msgstr "{handle} wird aus Dandelion entfernt und die Anmeldedaten werden aus dem
 msgid "_Remove"
 msgstr "_Entfernen"
 
-#: src/dandelion/add_profile.py:85
+#: src/dandelion/add_profile.py:86
 msgid "The sign-in took too long. Please try again."
 msgstr "Die Anmeldung hat zu lange gedauert. Bitte versuche es erneut."
 
-#: src/dandelion/add_profile.py:87
+#: src/dandelion/add_profile.py:88
 msgid "Sign-in failed."
 msgstr "Anmeldung fehlgeschlagen."
 
-#: src/dandelion/add_profile.py:127
+#: src/dandelion/add_profile.py:129 src/dandelion/auth/atproto.py:174
 #, python-brace-format
 msgid "The server denied the sign-in: {reason}"
 msgstr "Der Server hat die Anmeldung abgelehnt: {reason}"
 
-#: src/dandelion/add_profile.py:130 src/dandelion/add_profile.py:274
+#: src/dandelion/add_profile.py:132 src/dandelion/add_profile.py:300
+#: src/dandelion/auth/atproto.py:177 src/dandelion/auth/atproto.py:180
+#: src/dandelion/auth/atproto.py:182 src/dandelion/auth/atproto.py:189
+#: src/dandelion/auth/atproto.py:242 src/dandelion/platforms/bluesky.py:263
 msgid "The sign-in response did not match. Please try again."
 msgstr "Die Antwort auf die Anmeldung passte nicht. Bitte versuche es erneut."
 
-#: src/dandelion/add_profile.py:183
+#: src/dandelion/add_profile.py:209
 msgid "Create an app in the LinkedIn developer portal and add the products “Share on LinkedIn” and “Sign In with LinkedIn using OpenID Connect”. Enter the redirect address below under “Authorized redirect URLs”. Dandelion can only post to your personal profile. A sign-in is valid for 60 days."
 msgstr "Lege im LinkedIn-Entwicklerportal eine App an und füge die Produkte „Share on LinkedIn“ und „Sign In with LinkedIn using OpenID Connect“ hinzu. Trage die Redirect-Adresse unten unter „Authorized redirect URLs“ ein. Dandelion kann nur auf dein persönliches Profil posten. Eine Anmeldung gilt 60 Tage."
 
-#: src/dandelion/add_profile.py:188
+#: src/dandelion/add_profile.py:214
 msgid "Create an app of the type “Business” at developers.facebook.com, keep it in development mode and add “Facebook Login”. Enter the redirect address below under “Valid OAuth Redirect URIs”. Dandelion can only post to pages you manage, not to your personal profile."
 msgstr "Lege unter developers.facebook.com eine App vom Typ „Business“ an, belasse sie im Entwicklungsmodus und füge „Facebook Login“ hinzu. Trage die Redirect-Adresse unten unter „Gültige OAuth-Redirect-URIs“ ein. Dandelion kann nur auf Seiten posten, die du verwaltest, nicht auf dein privates Profil."
 
-#: src/dandelion/add_profile.py:192
+#: src/dandelion/add_profile.py:218
 msgid "Create an app of the type “Native App” with read and write permissions in the X developer portal and enter the redirect address below as callback. X charges your developer account for every post: about $0.015, or $0.20 if the post contains a link."
 msgstr "Lege im X-Entwicklerportal eine App vom Typ „Native App“ mit Lese- und Schreibrechten an und trage die Redirect-Adresse unten als Callback ein. X berechnet deinem Entwicklerkonto jeden Beitrag: etwa 0,015 $, mit Link 0,20 $."
 
-#: src/dandelion/add_profile.py:219
+#: src/dandelion/add_profile.py:245
 msgid "Client Secret (optional)"
 msgstr "Client-Secret (optional)"
 
-#: src/dandelion/add_profile.py:220
+#: src/dandelion/add_profile.py:246
 msgid "App Secret"
 msgstr "App-Geheimnis"
 
-#: src/dandelion/add_profile.py:222
+#: src/dandelion/add_profile.py:248
 msgid "App ID"
 msgstr "App-ID"
 
-#: src/dandelion/add_profile.py:243
+#: src/dandelion/add_profile.py:269
 msgid "Redirect address copied"
 msgstr "Redirect-Adresse kopiert"
 
-#: src/dandelion/add_profile.py:271
+#: src/dandelion/add_profile.py:297
 #, python-brace-format
 msgid "The sign-in was cancelled: {reason}"
 msgstr "Die Anmeldung wurde abgebrochen: {reason}"
 
-#: src/dandelion/add_profile.py:311
+#: src/dandelion/add_profile.py:337
 #, python-brace-format
 msgid "{n} page added"
 msgid_plural "{n} pages added"
@@ -2550,6 +2569,31 @@ msgstr "Inhalte für Erwachsene"
 #: src/dandelion/util.py:121
 msgid "Graphic Media"
 msgstr "Drastische Darstellungen"
+
+#: src/dandelion/auth/atproto.py:113 src/dandelion/auth/atproto.py:163
+#: src/dandelion/auth/atproto.py:198
+msgid "The Bluesky server could not be reached."
+msgstr "Der Bluesky-Server ist nicht erreichbar."
+
+#: src/dandelion/auth/atproto.py:115 src/dandelion/auth/atproto.py:119
+#: src/dandelion/auth/atproto.py:121 src/dandelion/auth/atproto.py:128
+#: src/dandelion/auth/atproto.py:132 src/dandelion/auth/atproto.py:138
+msgid "The Bluesky server does not support this sign-in."
+msgstr "Der Bluesky-Server unterstützt diese Anmeldung nicht."
+
+#: src/dandelion/auth/atproto.py:166
+#, python-brace-format
+msgid "Bluesky did not accept the sign-in request: {reason}"
+msgstr "Bluesky hat die Anmeldeanfrage nicht akzeptiert: {reason}"
+
+#: src/dandelion/auth/atproto.py:203 src/dandelion/auth/atproto.py:233
+msgid "The Bluesky sign-in has expired. Please sign in again."
+msgstr "Die Bluesky-Anmeldung ist abgelaufen. Bitte melde dich neu an."
+
+#: src/dandelion/auth/atproto.py:205 src/dandelion/auth/atproto.py:209
+#, python-brace-format
+msgid "Bluesky did not accept the sign-in: {reason}"
+msgstr "Bluesky hat die Anmeldung nicht akzeptiert: {reason}"
 
 #. GLib.Error: Port belegt
 #: src/dandelion/auth/oauth.py:70
@@ -2664,7 +2708,7 @@ msgstr "Die Datei ist zu groß für diesen Server."
 msgid "The server rejected the post."
 msgstr "Der Server hat den Beitrag abgelehnt."
 
-#: src/dandelion/platforms/base.py:121 src/dandelion/platforms/bluesky.py:150
+#: src/dandelion/platforms/base.py:121 src/dandelion/platforms/bluesky.py:168
 #: src/dandelion/platforms/facebook.py:122
 msgid "Too many requests. Please try again later."
 msgstr "Zu viele Anfragen. Bitte versuche es später erneut."
@@ -2679,7 +2723,8 @@ msgid "Unexpected answer from the server (HTTP {status})."
 msgstr "Unerwartete Antwort vom Server (HTTP {status})."
 
 #: src/dandelion/platforms/base.py:244 src/dandelion/platforms/mastodon.py:151
-#: src/dandelion/platforms/bluesky.py:229
+#: src/dandelion/platforms/bluesky.py:276
+#: src/dandelion/platforms/bluesky.py:299
 msgid "No login data found. Please sign in again."
 msgstr "Keine Anmeldedaten gefunden. Bitte melde dich erneut an."
 
@@ -2710,42 +2755,42 @@ msgstr "Der Server hat den Beitrag abgelehnt: {reason}"
 msgid "The server published the post immediately instead of scheduling it."
 msgstr "Der Server hat den Beitrag sofort veröffentlicht, statt ihn zu planen."
 
-#: src/dandelion/platforms/bluesky.py:132
+#: src/dandelion/platforms/bluesky.py:149
 msgid "Bluesky could not be reached. Check your internet connection."
 msgstr "Bluesky ist nicht erreichbar. Prüfe deine Internetverbindung."
 
-#: src/dandelion/platforms/bluesky.py:143
-msgid "Bluesky did not accept the login. Check the handle and the app password."
-msgstr "Bluesky hat die Anmeldung nicht akzeptiert. Prüfe Handle und App-Passwort."
+#: src/dandelion/platforms/bluesky.py:160
+msgid "Bluesky did not accept the login. Check the handle and the app password, or sign in again."
+msgstr "Bluesky hat die Anmeldung nicht akzeptiert. Prüfe Handle und App-Passwort oder melde dich neu an."
 
-#: src/dandelion/platforms/bluesky.py:148
+#: src/dandelion/platforms/bluesky.py:166
 msgid "This Bluesky account has been suspended."
 msgstr "Dieses Bluesky-Konto wurde gesperrt."
 
-#: src/dandelion/platforms/bluesky.py:153
+#: src/dandelion/platforms/bluesky.py:171
 msgid "A file is too large for Bluesky."
 msgstr "Eine Datei ist zu groß für Bluesky."
 
-#: src/dandelion/platforms/bluesky.py:156
+#: src/dandelion/platforms/bluesky.py:174
 #, python-brace-format
 msgid "Bluesky rejected the post: {reason}"
 msgstr "Bluesky hat den Beitrag abgelehnt: {reason}"
 
-#: src/dandelion/platforms/bluesky.py:194
+#: src/dandelion/platforms/bluesky.py:212
 #, python-brace-format
 msgid "The handle {handle} was not found on Bluesky."
 msgstr "Das Handle {handle} wurde auf Bluesky nicht gefunden."
 
-#: src/dandelion/platforms/bluesky.py:202
+#: src/dandelion/platforms/bluesky.py:220
 #, python-brace-format
 msgid "Unsupported identity: {did}"
 msgstr "Nicht unterstützte Identität: {did}"
 
-#: src/dandelion/platforms/bluesky.py:206
+#: src/dandelion/platforms/bluesky.py:224
 msgid "No Bluesky server (PDS) was found for this account."
 msgstr "Für dieses Konto wurde kein Bluesky-Server (PDS) gefunden."
 
-#: src/dandelion/platforms/bluesky.py:294
+#: src/dandelion/platforms/bluesky.py:379
 msgid "Videos are not supported for Bluesky yet."
 msgstr "Videos werden für Bluesky noch nicht unterstützt."
 

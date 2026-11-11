@@ -976,6 +976,24 @@ _NEW: dict[str, str | tuple[str, str]] = {
         "Antworten, Zitieren, Boosten, Favorisieren, Merken, Folgen, Stummschalten und Blockieren direkt aus der Spalte",
     "Unread counts, server filters, keyboard navigation and a one-column layout for narrow windows":
         "Ungelesen-Zähler, Server-Filter, Tastatursteuerung und ein einspaltiges Layout für schmale Fenster",
+    "The Bluesky server could not be reached.": "Der Bluesky-Server ist nicht erreichbar.",
+    "The Bluesky server does not support this sign-in.":
+        "Der Bluesky-Server unterstützt diese Anmeldung nicht.",
+    "Bluesky did not accept the sign-in request: {reason}":
+        "Bluesky hat die Anmeldeanfrage nicht akzeptiert: {reason}",
+    "Bluesky did not accept the sign-in: {reason}":
+        "Bluesky hat die Anmeldung nicht akzeptiert: {reason}",
+    "The Bluesky sign-in has expired. Please sign in again.":
+        "Die Bluesky-Anmeldung ist abgelaufen. Bitte melde dich neu an.",
+    "Bluesky did not accept the login. Check the handle and the app password, or sign in again.":
+        "Bluesky hat die Anmeldung nicht akzeptiert. Prüfe Handle und App-Passwort oder melde dich neu an.",
+    "Sign In with the Browser": "Im Browser anmelden",
+    "Sign In with _Browser": "Im _Browser anmelden",
+    "You approve Dandelion on the Bluesky website, and no password is stored. Bluesky ends this sign-in after two weeks at the latest. Scheduled posts need an app password instead.":
+        "Du erlaubst Dandelion auf der Bluesky-Website, es wird kein Passwort gespeichert. Bluesky beendet diese Anmeldung spätestens nach zwei Wochen. Für geplante Beiträge brauchst du stattdessen ein App-Passwort.",
+    "Sign In with an App Password": "Mit App-Passwort anmelden",
+    "Use an app password instead of your main password. You can revoke it at any time in the Bluesky settings. It keeps working for scheduled posts.":
+        "Nimm ein App-Passwort statt deines Hauptpassworts. Du kannst es jederzeit in den Bluesky-Einstellungen widerrufen. Es funktioniert auch für geplante Beiträge.",
 }
 for _key, _value in _NEW.items():          # bestehende Übersetzungen bleiben
     DE.setdefault(_key, _value)

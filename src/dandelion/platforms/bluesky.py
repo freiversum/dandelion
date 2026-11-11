@@ -3,7 +3,8 @@
 
 Standard-Login ist ein App-Passwort: Damit kann Dandelion die Sitzung
 jederzeit neu aufbauen, auch für Wochen im Voraus geplante Beiträge.
-(OAuth als Option folgt später.)
+Alternativ geht die Anmeldung per OAuth im Browser (`auth/atproto.py`); die
+Sitzung hält dann höchstens zwei Wochen, danach muss man sich neu anmelden.
 """
 
 from __future__ import annotations
@@ -17,6 +18,16 @@ from datetime import UTC, datetime
 from gettext import gettext as _
 from typing import Any
 
+from ..auth.atproto import (
+    SESSION_DAYS,
+    AtprotoOAuth,
+    DpopSession,
+    OAuthSessionEnded,
+    PendingAtproto,
+    refresh_lock,
+)
+from ..auth.dpop import DpopKey
+from ..auth.oauth import OAuthError
 from ..core import imaging
 from ..core.counting import (
     bluesky_count,
@@ -95,6 +106,10 @@ class Bluesky(Platform):
     name = "Bluesky"
     style_class = "platform-bluesky"
 
+    def __init__(self, http: Any, secrets: Any) -> None:
+        super().__init__(http, secrets)
+        self._nonces: dict[str, dict[str, str]] = {}   # DPoP-Nonce je Profil und Server
+
     def default_limits(self) -> PlatformLimits:
         return PlatformLimits(
             max_chars=300,
@@ -125,9 +140,11 @@ class Bluesky(Platform):
         return bluesky_display_text(text)
 
     # -- Sitzung -----------------------------------------------------------
-    async def _send(self, req: Request) -> Response:
+    async def _send(self, req: Request, dpop: DpopSession | None = None,
+                    access_token: str | None = None) -> Response:
         try:
-            resp = await self.http.send(req)
+            resp = (await dpop.send(req, access_token) if dpop
+                    else await self.http.send(req))
         except NetworkError as e:
             raise PlatformError(_("Bluesky could not be reached. Check your internet "
                                   "connection."), str(e), retryable=True) from e
@@ -141,7 +158,8 @@ class Bluesky(Platform):
             msg = resp.text()[:300]
         if err in ("AuthenticationRequired", "InvalidToken") or resp.status == 401:
             raise PlatformError(_("Bluesky did not accept the login. Check the handle and "
-                                  "the app password."), f"{err}: {msg}", auth=True)
+                                  "the app password, or sign in again."), f"{err}: {msg}",
+                                auth=True)
         if err == "ExpiredToken":
             raise PlatformError("expired", err, auth=True, retryable=True)
         if err == "AccountTakedown":
@@ -221,9 +239,61 @@ class Bluesky(Platform):
         return profile, secret
 
     async def store_credentials(self, profile: Profile, secret: dict[str, Any]) -> None:
-        await self.secrets.set(profile.uuid, "app-password", secret_label(self, profile), secret)
+        kind = "oauth" if profile.auth_method == "oauth" else "app-password"
+        await self.secrets.set(profile.uuid, kind, secret_label(self, profile), secret)
+        # Wechsel der Anmeldeart: den alten Eintrag nicht liegen lassen
+        await self.secrets.delete(profile.uuid, "app-password" if kind == "oauth" else "oauth")
+
+    # -- OAuth ---------------------------------------------------------------
+    @property
+    def oauth(self) -> AtprotoOAuth:
+        return AtprotoOAuth(self.http)
+
+    async def begin_oauth(self, handle: str, redirect_uri: str) -> PendingAtproto:
+        handle = normalize_handle(handle)
+        did, pds = await self.resolve_pds(handle)
+        return await self.oauth.begin(handle, did, pds, redirect_uri)
+
+    async def finish_oauth(self, pending: PendingAtproto,
+                           params: dict[str, str]) -> tuple[Profile, dict[str, Any]]:
+        secret = await self.oauth.finish(pending, params)
+        # Die DID aus dem Token muss zum PDS passen, den wir vorher aufgelöst haben
+        did, pds = await self.resolve_pds(secret["did"])
+        if pds != secret["pds"]:
+            raise OAuthError(_("The sign-in response did not match. Please try again."))
+        profile = Profile(platform=self.id, server=pds, remote_id=did, handle=pending.handle,
+                          auth_method="oauth")
+        dpop = DpopSession(self.http, DpopKey.from_jwk(secret["dpop_key"]), pending.nonces)
+        await self._fill_profile(profile, pds, secret["access_token"], dpop)
+        profile.token_expires_at = datetime.fromtimestamp(
+            time.time() + SESSION_DAYS * 86400, UTC).isoformat(timespec="seconds")
+        return profile, secret
+
+    async def _oauth_session(self, profile: Profile, force_refresh: bool) -> dict[str, Any]:
+        async with refresh_lock(profile.uuid):
+            data = await self.secrets.get(profile.uuid, "oauth")
+            if not data:
+                raise PlatformError(_("No login data found. Please sign in again."), auth=True)
+            if not force_refresh and data.get("expires_at", 0) > time.time() + 60:
+                return data
+            nonces = self._nonces.setdefault(profile.uuid, {})
+            try:
+                data = await self.oauth.refresh(data, nonces)
+            except OAuthSessionEnded as e:
+                raise PlatformError(str(e), auth=True) from e
+            except OAuthError as e:
+                raise PlatformError(str(e), retryable=True) from e
+            await self.secrets.set(profile.uuid, "oauth", secret_label(self, profile), data)
+            return data
+
+    def _dpop(self, profile: Profile, sess: dict[str, Any]) -> DpopSession:
+        return DpopSession(self.http, DpopKey.from_jwk(sess["dpop_key"]),
+                           self._nonces.setdefault(profile.uuid, {}))
 
     async def _session(self, profile: Profile, force_refresh: bool = False) -> dict[str, Any]:
+        if profile.auth_method == "oauth":
+            sess = await self._oauth_session(profile, force_refresh)
+            return {**sess, "access_jwt": sess["access_token"]}
         data = await self.secrets.get(profile.uuid, "app-password")
         if not data:
             raise PlatformError(_("No login data found. Please sign in again."), auth=True)
@@ -248,6 +318,17 @@ class Bluesky(Platform):
 
     async def _xrpc(self, profile: Profile, method: str, nsid: str, **kw: Any) -> Response:
         sess = await self._session(profile)
+        if profile.auth_method == "oauth":
+            for attempt in (1, 2):
+                req = Request(method, f"{sess['pds']}/xrpc/{nsid}", **kw)
+                try:
+                    return await self._send(req, self._dpop(profile, sess), sess["access_token"])
+                except PlatformError as e:
+                    if e.auth and attempt == 1:
+                        sess = await self._session(profile, force_refresh=True)
+                        continue
+                    raise
+            raise AssertionError("unreachable")
         for attempt in (1, 2):
             headers = {"Authorization": f"Bearer {sess['access_jwt']}", **kw.get("headers", {})}
             req = Request(method, f"{sess['pds']}/xrpc/{nsid}",
@@ -261,10 +342,12 @@ class Bluesky(Platform):
                 raise
         raise AssertionError("unreachable")
 
-    async def _fill_profile(self, profile: Profile, pds: str, token: str) -> None:
-        resp = await self._send(Request(
-            "GET", f"{pds}/xrpc/app.bsky.actor.getProfile", params={"actor": profile.remote_id},
-            headers={"Authorization": f"Bearer {token}"}))
+    async def _fill_profile(self, profile: Profile, pds: str, token: str,
+                            dpop: DpopSession | None = None) -> None:
+        req = Request("GET", f"{pds}/xrpc/app.bsky.actor.getProfile",
+                      params={"actor": profile.remote_id},
+                      headers={} if dpop else {"Authorization": f"Bearer {token}"})
+        resp = await self._send(req, dpop, token if dpop else None)
         p = resp.json()
         profile.handle = p.get("handle", profile.handle)
         profile.display_name = p.get("displayName") or ""
@@ -274,7 +357,9 @@ class Bluesky(Platform):
     async def refresh_profile(self, profile: Profile) -> Profile:
         try:
             sess = await self._session(profile)
-            await self._fill_profile(profile, sess["pds"], sess["access_jwt"])
+            await self._fill_profile(
+                profile, sess["pds"], sess["access_jwt"],
+                self._dpop(profile, sess) if profile.auth_method == "oauth" else None)
         except PlatformError as e:
             profile.status = ProfileStatus.EXPIRED if e.auth else ProfileStatus.ERROR
             profile.status_detail = e.message
@@ -415,6 +500,12 @@ class Bluesky(Platform):
 
     async def logout(self, profile: Profile) -> None:
         try:
+            if profile.auth_method == "oauth":
+                data = await self.secrets.get(profile.uuid, "oauth")
+                if data:
+                    await self.oauth.revoke(data)
+                await super().logout(profile)
+                return
             data = await self.secrets.get(profile.uuid, "app-password")
             if data:
                 await self._send(Request(

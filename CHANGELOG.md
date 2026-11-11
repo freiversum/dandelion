@@ -2,6 +2,20 @@
 
 All notable changes to Dandelion are listed here.
 
+## [Unreleased]
+
+### Added
+
+- **Bluesky sign-in with OAuth** as an alternative to the app password: you
+  approve Dandelion in the browser and no password is stored (PAR, PKCE and
+  DPoP-bound tokens, refreshed automatically). Bluesky ends such a session after
+  two weeks at the latest, so scheduled posts still need an app password. The
+  client metadata for the server lives in
+  [docs/oauth/client-metadata.json](docs/oauth/client-metadata.json) and has to
+  be published at `https://linuxundich.de/dandelion/oauth/client-metadata.json`
+  before the sign-in works. The OAuth scope already includes chat access for the
+  later *Messages* tab.
+
 ## 0.4.0 – 2026-11-11
 
 Dandelion can read now: a multi-column deck for Mastodon and Bluesky next to the

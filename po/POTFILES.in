@@ -31,6 +31,7 @@ src/dandelion/add_profile.py
 src/dandelion/alt_text_dialog.py
 src/dandelion/send_dialog.py
 src/dandelion/util.py
+src/dandelion/auth/atproto.py
 src/dandelion/auth/oauth.py
 src/dandelion/core/validation.py
 src/dandelion/core/publisher.py

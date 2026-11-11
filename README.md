@@ -66,7 +66,7 @@
 | Network | Login | Notes |
 |---|---|---|
 | Mastodon | Browser (OAuth with PKCE) | Works with any Mastodon-compatible server |
-| Bluesky | App password | Handles, profile addresses and own domains |
+| Bluesky | App password, or OAuth in the browser (session ends after two weeks) | Handles, profile addresses and own domains |
 | LinkedIn | Own developer app | Personal profile only; a login is valid for 60 days |
 | Facebook | Own developer app | Pages you manage only; no personal profiles or groups |
 | X | Own developer app | **X charges per post** (about $0.015, $0.20 with a link) |
