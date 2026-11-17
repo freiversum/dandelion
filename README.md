@@ -1,65 +1,254 @@
-<div align="center">
-  <img src="data/icons/hicolor/scalable/apps/de.linuxundich.Dandelion.svg" width="128" alt="">
+<p align="center">
+  <img src="data/icons/hicolor/scalable/apps/de.linuxundich.Dandelion.svg" alt="Dandelion icon" width="128" height="128">
+</p>
 
-  # Dandelion
+<h1 align="center">Dandelion</h1>
 
-  **Write once, post everywhere.**
+<p align="center"><strong>Write once, post everywhere.</strong></p>
 
+<p align="center">
   A native GNOME app to write a post once and publish it to Mastodon, Bluesky,
   LinkedIn, Facebook pages and X – right away or at a planned time.
-</div>
+</p>
 
-![Composer with preview](data/screenshots/composer.png)
+<p align="center">
+  <a href="https://github.com/linuxundich/dandelion/releases/latest"><strong>Download Flatpak bundle</strong></a>
+  &nbsp;·&nbsp;
+  <a href="#install">Install</a>
+  &nbsp;·&nbsp;
+  <a href="CHANGELOG.md">Changelog</a>
+</p>
 
-## Features
+<p align="center">
+  <img src="data/screenshots/composer.png" alt="Composer with preview" width="100%">
+</p>
 
-- **Roles** bundle your profiles, language, visibility and a signature, for example
-  “Private”, “Blog” or “Project”. One profile can belong to several roles.
-- **Several accounts per network**, such as two Mastodon instances.
-- **Exact character counters** for every network: Mastodon instance limits and
-  23-character URLs, Bluesky graphemes and bytes, weighted counting for X.
-- **Own wording** per network or per profile where needed; otherwise the main
-  text is used.
-- **Preview** for every profile. Profiles that would look the same share one
-  tile, problems are shown right in the tile.
-- **Alt text** is required for Mastodon and suggested everywhere else. The AI
-  assistant (Gemini, OpenAI, Grok or OpenRouter, set up in the preferences) can draft it and
-  revise it on request.
-- **Threads:** long posts are split into numbered parts on Mastodon, Bluesky and
-  X – at paragraphs, sentences or words, or by hand with a `---` line.
-- **Scheduling** with a background service that also works while the window is
-  closed. Missed posts (computer off or asleep) are reported instead of being
-  sent silently. Mastodon posts can optionally be scheduled on the server.
-- **One sidebar for everything:** drafts, scheduled and published posts sit in
-  one list, grouped by state, with search and right-click actions.
-- **Calendar and time slots:** a month view with scheduled and published posts
-  and the free time slots of each role. Drag a draft from the sidebar onto a
-  day to schedule it, or drag a scheduled post to another day.
-- **History** with links to every post, retry for failed profiles and deletion
-  on the platform.
-- **Optional writing assistant** with Google Gemini, OpenAI, xAI or OpenRouter: rephrase,
-  correct, translate, adapt to a network, suggest hashtags and describe images.
-  It only makes suggestions and can be switched off completely.
-- **Read mode (the deck):** one column per Mastodon or Bluesky profile of a
-  role with home, notifications and messages, plus single columns for lists,
-  hashtags, bookmarks and feeds. Images with alt text, polls, link cards and
-  quotes, unread counts, live updates on Mastodon, and everything you need to
-  answer: reply, quote, boost or repost, favourite, bookmark, follow, mute and
-  block. Keyboard navigation with `j` `k` `h` `l`. Narrow windows show one
-  column at a time.
-- **Secure:** login data and API keys are stored in the system keyring
-  (Secret Service), never in plain text.
-- **Adaptive layout** from 360 px phones to wide desktop screens: the
-  preview grows with the window and shows two columns when there is room.
-  Keyboard shortcuts, light and dark style.
+## What it does
 
-| Calendar | Writing assistant |
-|---|---|
-| ![Calendar](data/screenshots/scheduled.png) | ![Assistant](data/screenshots/assistant.png) |
+<table>
+<tr>
+<td width="33%" valign="top">
 
-![The deck: one column per profile](data/screenshots/deck.png)
+### Roles
+
+Roles bundle your profiles, language, visibility and a signature, for example
+“Private”, “Blog” or “Project”. One profile can belong to several roles.
+
+</td>
+<td width="33%" valign="top">
+
+### Exact character counters
+
+For every network: Mastodon instance limits and 23-character URLs, Bluesky
+graphemes and bytes, weighted counting for X.
+
+</td>
+<td width="33%" valign="top">
+
+### Preview
+
+For every profile. Profiles that would look the same share one tile,
+problems are shown right in the tile.
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="55%">
+
+<img src="data/screenshots/deck.png" alt="The deck: one column per profile" width="100%">
 
 *The deck with example posts: a Mastodon and a Bluesky profile of one role.*
+
+</td>
+<td valign="middle">
+
+### Read mode (the deck)
+
+One column per Mastodon or Bluesky profile of a role with home,
+notifications and messages, plus single columns for lists, hashtags,
+bookmarks and feeds. Images with alt text, polls, link cards and quotes,
+unread counts, live updates on Mastodon, and everything you need to answer:
+reply, quote, boost or repost, favourite, bookmark, follow, mute and block.
+Keyboard navigation with `j` `k` `h` `l`. Narrow windows show one column at
+a time.
+
+### Several accounts per network
+
+Such as two Mastodon instances.
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td valign="middle">
+
+### Scheduling
+
+A background service that also works while the window is closed. Missed
+posts (computer off or asleep) are reported instead of being sent silently.
+Mastodon posts can optionally be scheduled on the server.
+
+### Calendar and time slots
+
+A month view with scheduled and published posts and the free time slots of
+each role. Drag a draft from the sidebar onto a day to schedule it, or drag a
+scheduled post to another day.
+
+### One sidebar for everything
+
+Drafts, scheduled and published posts sit in one list, grouped by state,
+with search and right-click actions.
+
+### History
+
+With links to every post, retry for failed profiles and deletion on the
+platform.
+
+</td>
+<td width="55%">
+
+<img src="data/screenshots/scheduled.png" alt="Calendar" width="100%">
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="55%">
+
+<img src="data/screenshots/assistant.png" alt="Writing assistant" width="100%">
+
+</td>
+<td valign="middle">
+
+### Optional writing assistant
+
+With Google Gemini, OpenAI, xAI or OpenRouter: rephrase, correct, translate,
+adapt to a network, suggest hashtags and describe images. It only makes
+suggestions and can be switched off completely.
+
+### Alt text
+
+Required for Mastodon and suggested everywhere else. The AI assistant
+(Gemini, OpenAI, Grok or OpenRouter, set up in the preferences) can draft it
+and revise it on request.
+
+### Own wording
+
+Per network or per profile where needed; otherwise the main text is used.
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td valign="middle">
+
+### Threads
+
+Long posts are split into numbered parts on Mastodon, Bluesky and X – at
+paragraphs, sentences or words, or by hand with a `---` line.
+
+### Adaptive layout
+
+From 360 px phones to wide desktop screens: the preview grows with the window
+and shows two columns when there is room. Keyboard shortcuts, light and dark
+style.
+
+### Secure
+
+Login data and API keys are stored in the system keyring (Secret Service),
+never in plain text.
+
+</td>
+<td width="55%">
+
+<img src="data/screenshots/composer-dark.png" alt="Composer in the dark style" width="100%">
+
+</td>
+</tr>
+</table>
+
+## At a glance
+
+| | |
+|---|---|
+| **Runs on** | GNOME (GTK 4, libadwaita), from 360 px phones to wide desktop screens |
+| **Posts to** | Mastodon, Bluesky, LinkedIn, Facebook pages and X ([details](#networks)) |
+| **Languages** | Interface in English and German |
+| **Privacy** | No server in between, login data in the system keyring, writing assistant off by default |
+| **Costs** | Free software; X charges per post |
+| **Licence** | [GPL-3.0-or-later](COPYING) |
+
+## Install
+
+<table>
+<tr>
+<th width="50%">Arch Linux (AUR)</th>
+<th width="50%">Flatpak bundle</th>
+</tr>
+<tr>
+<td valign="top">
+
+```bash
+yay -S dandelion
+```
+
+The PKGBUILD lives in [`build-aux/arch/`](build-aux/arch/PKGBUILD).
+
+</td>
+<td valign="top">
+
+From a bundle (`dandelion-<version>-x86_64.flatpak`); the GNOME runtime is
+fetched from Flathub automatically:
+
+```bash
+flatpak install --user dandelion-0.4.0-x86_64.flatpak
+```
+
+</td>
+</tr>
+</table>
+
+> [!NOTE]
+> The Flatpak keeps its own data and keyring entries, so profiles are added
+> again there.
+
+### Build the Flatpak yourself
+
+Build it from the release tag, or from your working copy:
+
+```bash
+flatpak-builder --user --install --force-clean _flatpak build-aux/flatpak/de.linuxundich.Dandelion.release.json
+flatpak-builder --user --install --force-clean _flatpak build-aux/flatpak/de.linuxundich.Dandelion.json
+```
+
+Create a bundle to share:
+
+```bash
+flatpak-builder --force-clean --repo=_flatpak-repo _flatpak build-aux/flatpak/de.linuxundich.Dandelion.release.json
+flatpak build-bundle --runtime-repo=https://dl.flathub.org/repo/flathub.flatpakrepo \
+    _flatpak-repo dandelion-0.4.0-x86_64.flatpak de.linuxundich.Dandelion master
+```
+
+### From source
+
+Requirements: Python ≥ 3.12, PyGObject ≥ 3.50, GTK 4, libadwaita ≥ 1.8,
+GtkSourceView 5, libspelling, libsoup 3, libsecret, libportal (GTK 4),
+Meson and blueprint-compiler.
+
+```bash
+meson setup _build --prefix=/usr
+meson compile -C _build
+sudo meson install -C _build
+```
 
 ## Networks
 
@@ -75,55 +264,6 @@ LinkedIn, Facebook and X only allow posting through an app that you register
 yourself. Dandelion explains the steps when you add such a profile and shows
 the redirect address to enter (`http://127.0.0.1:8742/callback`, for Facebook
 `http://localhost:8742/callback`).
-
-## Installation
-
-### Arch Linux (AUR)
-
-```bash
-yay -S dandelion
-```
-
-The PKGBUILD lives in [`build-aux/arch/`](build-aux/arch/PKGBUILD).
-
-### Flatpak
-
-From a bundle (`dandelion-<version>-x86_64.flatpak`); the GNOME runtime is
-fetched from Flathub automatically:
-
-```bash
-flatpak install --user dandelion-0.4.0-x86_64.flatpak
-```
-
-Build it yourself from the release tag, or from your working copy:
-
-```bash
-flatpak-builder --user --install --force-clean _flatpak build-aux/flatpak/de.linuxundich.Dandelion.release.json
-flatpak-builder --user --install --force-clean _flatpak build-aux/flatpak/de.linuxundich.Dandelion.json
-```
-
-Create a bundle to share:
-
-```bash
-flatpak-builder --force-clean --repo=_flatpak-repo _flatpak build-aux/flatpak/de.linuxundich.Dandelion.release.json
-flatpak build-bundle --runtime-repo=https://dl.flathub.org/repo/flathub.flatpakrepo \
-    _flatpak-repo dandelion-0.4.0-x86_64.flatpak de.linuxundich.Dandelion master
-```
-
-The Flatpak keeps its own data and keyring entries, so profiles are added
-again there.
-
-### From source
-
-Requirements: Python ≥ 3.12, PyGObject ≥ 3.50, GTK 4, libadwaita ≥ 1.8,
-GtkSourceView 5, libspelling, libsoup 3, libsecret, libportal (GTK 4),
-Meson and blueprint-compiler.
-
-```bash
-meson setup _build --prefix=/usr
-meson compile -C _build
-sudo meson install -C _build
-```
 
 ## Scheduling
 

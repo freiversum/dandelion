@@ -16,6 +16,10 @@ All notable changes to Dandelion are listed here.
   before the sign-in works. The OAuth scope already includes chat access for the
   later *Messages* tab.
 
+### Changed
+
+- README restructured: feature grid, screenshots beside the text, facts at a glance.
+
 ## 0.4.0 – 2026-11-11
 
 Dandelion can read now: a multi-column deck for Mastodon and Bluesky next to the
