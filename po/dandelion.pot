@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dandelion\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-11 20:00+0100\n"
+"POT-Creation-Date: 2026-11-20 14:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1365,6 +1365,10 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
+#: src/dandelion/application.py:178
+msgid "A star in the freiversum"
+msgstr ""
+
 #: src/dandelion/window.py:211
 #, python-brace-format
 msgid "{n} unread"
@@ -2246,7 +2250,7 @@ msgstr ""
 msgid "{platform} · deleted"
 msgstr ""
 
-#: src/dandelion/history.py:156 src/dandelion/archive.py:264
+#: src/dandelion/history.py:156 src/dandelion/archive.py:269
 msgid "Not published"
 msgstr ""
 
@@ -3065,7 +3069,7 @@ msgid "Scheduled on the server: {profiles}"
 msgstr ""
 
 #: src/dandelion/scheduled.py:314 src/dandelion/scheduled.py:398
-#: src/dandelion/archive.py:194 src/dandelion/archive.py:262
+#: src/dandelion/archive.py:194 src/dandelion/archive.py:267
 msgid "Paused"
 msgstr ""
 
@@ -3389,7 +3393,7 @@ msgstr ""
 msgid "Without Date"
 msgstr ""
 
-#: src/dandelion/archive.py:192 src/dandelion/archive.py:257
+#: src/dandelion/archive.py:192 src/dandelion/archive.py:262
 msgid "Missed"
 msgstr ""
 

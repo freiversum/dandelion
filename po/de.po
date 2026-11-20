@@ -1299,6 +1299,10 @@ msgstr "Einmal schreiben, auf Mastodon, Bluesky und mehr veröffentlichen."
 msgid "translator-credits"
 msgstr "Christoph Langner"
 
+#: src/dandelion/application.py:178
+msgid "A star in the freiversum"
+msgstr "Ein Stern im freiversum"
+
 #: src/dandelion/window.py:211
 #, python-brace-format
 msgid "{n} unread"
@@ -2174,7 +2178,7 @@ msgstr "Auf {platform} löschen"
 msgid "{platform} · deleted"
 msgstr "{platform} · gelöscht"
 
-#: src/dandelion/history.py:156 src/dandelion/archive.py:264
+#: src/dandelion/history.py:156 src/dandelion/archive.py:269
 msgid "Not published"
 msgstr "Nicht veröffentlicht"
 
@@ -2973,7 +2977,7 @@ msgid "Scheduled on the server: {profiles}"
 msgstr "Auf dem Server geplant: {profiles}"
 
 #: src/dandelion/scheduled.py:314 src/dandelion/scheduled.py:398
-#: src/dandelion/archive.py:194 src/dandelion/archive.py:262
+#: src/dandelion/archive.py:194 src/dandelion/archive.py:267
 msgid "Paused"
 msgstr "Pausiert"
 
@@ -3276,7 +3280,7 @@ msgstr "Geplant"
 msgid "Without Date"
 msgstr "Ohne Datum"
 
-#: src/dandelion/archive.py:192 src/dandelion/archive.py:257
+#: src/dandelion/archive.py:192 src/dandelion/archive.py:262
 msgid "Missed"
 msgstr "Verpasst"
 

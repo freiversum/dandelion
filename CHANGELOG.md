@@ -15,6 +15,9 @@ All notable changes to Dandelion are listed here.
   be published at `https://linuxundich.de/dandelion/oauth/client-metadata.json`
   before the sign-in works. The OAuth scope already includes chat access for the
   later *Messages* tab.
+- The About dialog links to [freiversum](https://freiversum.de/), the umbrella
+  over the author's independent projects ("A star in the freiversum", German
+  "Ein Stern im freiversum").
 
 ### Changed
 

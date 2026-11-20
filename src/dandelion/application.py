@@ -175,6 +175,7 @@ class DandelionApplication(Adw.Application):
             # and optionally an email or URL.
             translator_credits=_("translator-credits"),
         )
+        about.add_link(_("A star in the freiversum"), "https://freiversum.de/")
         about.present(self.props.active_window)
 
     def on_preferences(self, *_args: object) -> None:

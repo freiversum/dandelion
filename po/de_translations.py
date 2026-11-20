@@ -178,6 +178,7 @@ DE: dict[str, str | tuple[str, str]] = {
     "Write once, post to Mastodon, Bluesky and more.":
         "Einmal schreiben, auf Mastodon, Bluesky und mehr veröffentlichen.",
     "translator-credits": "Christoph Langner",
+    "A star in the freiversum": "Ein Stern im freiversum",
     "Personal": "Privat",
     "{n} profile": ("{n} Profil", "{n} Profile"),
     "No Role": "Keine Rolle",
