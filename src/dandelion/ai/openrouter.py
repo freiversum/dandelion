@@ -21,7 +21,7 @@ class OpenRouter(AIProvider):
 
     def _headers(self, api_key: str) -> dict[str, str]:
         return {"Authorization": f"Bearer {api_key}", "X-Title": "Dandelion",
-                "HTTP-Referer": "https://github.com/linuxundich/dandelion"}
+                "HTTP-Referer": "https://github.com/freiversum/dandelion"}
 
     async def list_models(self, api_key: str) -> list[str]:
         resp = await self._send(Request("GET", f"{API}/models",

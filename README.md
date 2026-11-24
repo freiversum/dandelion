@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/linuxundich/dandelion/releases/latest"><strong>Download Flatpak bundle</strong></a>
+  <a href="https://github.com/freiversum/dandelion/releases/latest"><strong>Download Flatpak bundle</strong></a>
   &nbsp;·&nbsp;
   <a href="#install">Install</a>
   &nbsp;·&nbsp;

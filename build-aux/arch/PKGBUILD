@@ -4,7 +4,7 @@ pkgver=0.4.0
 pkgrel=1
 pkgdesc="Write once, post to Mastodon, Bluesky, LinkedIn, Facebook pages and X"
 arch=('any')
-url="https://github.com/linuxundich/dandelion"
+url="https://github.com/freiversum/dandelion"
 license=('GPL-3.0-or-later')
 depends=(
   'gdk-pixbuf2'

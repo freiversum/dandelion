@@ -39,7 +39,7 @@ SCOPES = ("read write:statuses write:media write:favourites write:bookmarks "
           "write:conversations")
 OOB = "urn:ietf:wg:oauth:2.0:oob"
 APP_NAME = "Dandelion"
-APP_WEBSITE = "https://github.com/linuxundich/dandelion"
+APP_WEBSITE = "https://github.com/freiversum/dandelion"
 
 
 def normalize_instance(text: str) -> str:

@@ -19,7 +19,7 @@ from typing import Any, Protocol
 
 log = logging.getLogger(__name__)
 
-USER_AGENT = "Dandelion/0.1 (+https://github.com/linuxundich/dandelion)"
+USER_AGENT = "Dandelion/0.1 (+https://github.com/freiversum/dandelion)"
 _SENSITIVE_PARAMS = {"code", "access_token", "refresh_token", "client_secret", "password",
                      "code_verifier", "token"}
 

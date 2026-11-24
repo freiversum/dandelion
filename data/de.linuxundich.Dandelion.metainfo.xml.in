@@ -24,10 +24,10 @@
   <developer id="de.linuxundich">
     <name>Christoph Langner</name>
   </developer>
-  <url type="homepage">https://github.com/linuxundich/dandelion</url>
-  <url type="bugtracker">https://github.com/linuxundich/dandelion/issues</url>
-  <url type="vcs-browser">https://github.com/linuxundich/dandelion</url>
-  <url type="translate">https://github.com/linuxundich/dandelion/tree/main/po</url>
+  <url type="homepage">https://github.com/freiversum/dandelion</url>
+  <url type="bugtracker">https://github.com/freiversum/dandelion/issues</url>
+  <url type="vcs-browser">https://github.com/freiversum/dandelion</url>
+  <url type="translate">https://github.com/freiversum/dandelion/tree/main/po</url>
   <launchable type="desktop-id">de.linuxundich.Dandelion.desktop</launchable>
   <translation type="gettext">dandelion</translation>
   <provides>
@@ -63,23 +63,23 @@
   <screenshots>
     <screenshot type="default">
       <caption>Write a post once and see a preview for every profile</caption>
-      <image>https://raw.githubusercontent.com/linuxundich/dandelion/main/data/screenshots/composer.png</image>
+      <image>https://raw.githubusercontent.com/freiversum/dandelion/main/data/screenshots/composer.png</image>
     </screenshot>
     <screenshot>
       <caption>Plan posts in a month calendar with free time slots</caption>
-      <image>https://raw.githubusercontent.com/linuxundich/dandelion/main/data/screenshots/scheduled.png</image>
+      <image>https://raw.githubusercontent.com/freiversum/dandelion/main/data/screenshots/scheduled.png</image>
     </screenshot>
     <screenshot>
       <caption>Optional writing assistant that only makes suggestions</caption>
-      <image>https://raw.githubusercontent.com/linuxundich/dandelion/main/data/screenshots/assistant.png</image>
+      <image>https://raw.githubusercontent.com/freiversum/dandelion/main/data/screenshots/assistant.png</image>
     </screenshot>
     <screenshot>
       <caption>Dark style</caption>
-      <image>https://raw.githubusercontent.com/linuxundich/dandelion/main/data/screenshots/composer-dark.png</image>
+      <image>https://raw.githubusercontent.com/freiversum/dandelion/main/data/screenshots/composer-dark.png</image>
     </screenshot>
     <screenshot>
       <caption>Read: one column per profile, with live updates</caption>
-      <image>https://raw.githubusercontent.com/linuxundich/dandelion/main/data/screenshots/deck.png</image>
+      <image>https://raw.githubusercontent.com/freiversum/dandelion/main/data/screenshots/deck.png</image>
     </screenshot>
   </screenshots>
   <releases>

@@ -21,6 +21,7 @@ All notable changes to Dandelion are listed here.
 
 ### Changed
 
+- The repository moved to the freiversum organization: https://github.com/freiversum/dandelion. Old `github.com/linuxundich/dandelion` links and clone URLs redirect.
 - README restructured: feature grid, screenshots beside the text, facts at a glance.
 
 ## 0.4.0 – 2026-11-11
